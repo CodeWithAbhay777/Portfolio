@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NavbarUsage } from "@/components/NavbarUsage";
+import { Toaster } from "@/components/ui/sonner";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +25,21 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="h-min-screen relative bg-black w-full">
+        <div className="h-min-screen relative bg-black w-full overflow-x-hidden">
           <NavbarUsage />
           {children}
+          <Toaster
+            theme="dark"
+            toastOptions={{
+              style: {
+                background: "#fff",
+                color: "#000",
+              },
+            }}
+          />
+
+          <Footer />
         </div>
-        
       </body>
     </html>
   );

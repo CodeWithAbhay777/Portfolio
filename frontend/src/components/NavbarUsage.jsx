@@ -15,35 +15,56 @@ import { useState } from "react";
 export function NavbarUsage() {
   const navItems = [
     {
-      name: "Features",
-      link: "#features",
+      name: "Home",
+      link: "#home",
     },
     {
-      name: "Pricing",
-      link: "#pricing",
+      name: "About",
+      link: "#about",
     },
     {
-      name: "Contact",
-      link: "#contact",
+      name:"skills",
+      link:"#skills" 
     },
+    {
+      name: "Projects",
+      link: "#projects",
+    },
+    
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const scrollToSection = (href) => {
+    const element = document.querySelector(href);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
-    
-      <div className="relative w-full">
+    <div className="relative w-full">
       <Navbar>
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
-          <NavItems items={navItems} />
+          <NavItems
+            items={navItems}
+            onItemClick={(e) => {
+              e.preventDefault();
+              const link = e.currentTarget.getAttribute("href");
+
+              link && scrollToSection(link);
+            }}
+          />
           <div className="flex items-center gap-4">
-            
-            <NavbarButton variant="primary">Book a call</NavbarButton>
+            <NavbarButton
+              variant="primary"
+              as="button"
+              onClick={() => scrollToSection("#contact")}
+            >
+              Contact
+            </NavbarButton>
           </div>
         </NavBody>
- 
+
         {/* Mobile Navigation */}
         <MobileNav>
           <MobileNavHeader>
@@ -51,38 +72,45 @@ export function NavbarUsage() {
             <MobileNavToggle
               isOpen={isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              
             />
           </MobileNavHeader>
- 
+
           <MobileNavMenu
             isOpen={isMobileMenuOpen}
             onClose={() => setIsMobileMenuOpen(false)}
+            className="bg-blaack"
           >
             {navItems.map((item, idx) => (
               <a
                 key={`mobile-link-${idx}`}
                 href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const link = e.currentTarget.getAttribute("href");
+
+                  link && scrollToSection(link);
+                  setIsMobileMenuOpen(false);
+                }}
                 className="relative text-neutral-600 dark:text-neutral-300"
               >
                 <span className="block">{item.name}</span>
               </a>
             ))}
             <div className="flex w-full flex-col gap-4">
-              
               <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  scrollToSection("#contact");
+                  setIsMobileMenuOpen(false);
+                }}
                 variant="primary"
                 className="w-full "
               >
-                Book a call
+                Contact
               </NavbarButton>
             </div>
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-      </div>
-    
+    </div>
   );
 }
