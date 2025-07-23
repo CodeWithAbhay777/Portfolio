@@ -46,14 +46,15 @@ const projectsData = [
 
     {
         title: "Portfolio",
-        description: "Developed a real-time platform for coding collaboration, eliminating the need for screen-sharing or lengthy calls.",
-        features: "Multi-language code editing , video calls (WebRTC) , whiteboard (TLDraw) , AIassistant (ChatGPT API) , and Google OAuth for secure code saving.",
+        description: "A modern, responsive portfolio website built using Next.js to showcase my skills, projects, and contact information with smooth navigation and animations.",
+        features: "Smooth scroll and section-based navigation , clean UI along with animations",
         image: "/portfolioImage.png",
         techStack: [
             { name: "Nextjs", icon: SiNextdotjs },
             { name: "Framer-motion", icon: SiFramer },
+            { name : "TailwindCSS" , icon : SiTailwindcss}
         ],
-        liveURL: "",
+        liveURL: "https://abhay-awasthi-portfolio.vercel.app/",
         githubLink: "https://github.com/CodeWithAbhay777/Portfolio",
         demo: "",
     },
