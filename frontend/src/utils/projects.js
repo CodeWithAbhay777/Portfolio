@@ -41,7 +41,7 @@ const projectsData = [
         ],
         liveURL: "https://code-cortex-kappa.vercel.app/",
         githubLink: "https://github.com/CodeWithAbhay777/Code_Cortex",
-        demo: "",
+        demo: "https://drive.google.com/file/d/1ZFVWtU31IvJ4M6AQBhR_vJ6IV4NCECgM/view?usp=drive_link",
     },
 
     {

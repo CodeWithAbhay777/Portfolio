@@ -55,7 +55,7 @@ export function HeroSection() {
         </div>
         <div className="mt-8 w-full flex items-center justify-center">
           <div className="flex text-center w-full sm:w-[80%] md:w-[40%] items-center justify-center gap-4">
-            <a href="/Resume_V6.pdf" download>
+            <a href="/Resume_V8.pdf" download>
               <HoverBorderGradient
                 containerClassName="rounded-full"
                 as="div"
