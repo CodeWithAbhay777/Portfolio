@@ -105,7 +105,7 @@ const ProjectsSection = () => {
 
                   <div className="flex ">
                     <button
-                      onClick={() => console.log("hello world")}
+                      onClick={() => window.open(item.demo, "_blank")}
                       disabled={!item.demo}
                       className={`px-4 py-2 rounded-xl bg-white text-black text-xs font-semibold truncate ${
                         item.demo
@@ -117,7 +117,7 @@ const ProjectsSection = () => {
                     </button>
 
                     <button
-                      onClick={() => console.log("hello world")}
+                      onClick={() => window.open(item.githubLink, "_blank")}
                       disabled={!item.githubLink}
                       className={` ml-1 sm:ml-2 px-4 py-2 rounded-xl bg-white text-black text-xs font-semibold truncate ${
                         item.githubLink
